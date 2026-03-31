@@ -30,7 +30,14 @@ let memBookings = [];
 const app  = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(cors());
+app.use(cors({
+  origin: [
+    'http://localhost:3000',
+    'https://starlit-bublanina-43e9d1.netlify.app',
+  ],
+  methods: ['GET', 'POST', 'PATCH', 'OPTIONS'],
+  allowedHeaders: ['Content-Type'],
+}));
 app.use(express.json());
 
 // ════════════════════════════════════════════════════════════
